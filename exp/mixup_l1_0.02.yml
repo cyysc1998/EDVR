@@ -1,0 +1,41 @@
+# Experiment
+exp_name: exp_l1_0.0002
+dataset: shapenet
+cuda: True
+parallel: False
+
+
+# Model
+model: consnet
+nlayers: 3
+
+# Hyper Parameter
+batch_size: 16
+test_batch_size: 16
+epochs: 100
+use_sgd: True
+lr: 0.0002
+momentum: 0.9
+scheduler: cos
+
+num_points: 1024
+dropout: 0.5
+emb_dims: 1024
+k: 20
+
+# Part Segmention
+class_choice: None
+
+
+# Condition
+loss: l1loss
+mixup: 3 # 1：2 obj emd_mixup 2: rorate 3: alter 4: half + half
+eval: False
+valid: True
+
+
+
+
+
+
+
