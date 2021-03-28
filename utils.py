@@ -125,7 +125,7 @@ def emd_mixup_2obj(data, label, use_cuda=True):
 def add_mixup(data, label, use_cuda=True):
     """
     :param data: point cloud (B, N, 3)
-    :param label: category label (B, N, 3)
+    :param label: category label (B, N)
     :param use_cuda: use gpu
     :return: random permute a batch of point clouds and sample
     """
@@ -141,7 +141,7 @@ def add_mixup(data, label, use_cuda=True):
     s = torch.cat([s1, s2], dim=1)
     label1, label2 = label, label[index]
 
-    perm = torch.randperm(npoints).cuda() if use_cuda else torch.randperm(npoints)
+    perm = torch.randperm(2*npoints).cuda() if use_cuda else torch.randperm(2*npoints)
     s = s[:, perm, :]
     s = s[:, :npoints//2, :]
 
