@@ -143,7 +143,7 @@ def add_mixup(data, label, use_cuda=True):
 
     perm = torch.randperm(2*npoints).cuda() if use_cuda else torch.randperm(2*npoints)
     s = s[:, perm, :]
-    s = s[:, :npoints//2, :]
+    s = s[:, :npoints, :]
 
     return s, s1, s2, label1, label2
 
